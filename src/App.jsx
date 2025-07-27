@@ -16,7 +16,7 @@ function App() {
         <Navbar />
         <div className="w-full h-auto bg-black px-25">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/krishportfolio" element={<Home />} />
             <Route path="/herosection" element={<HeroSection />} />
             <Route path="/about" element={<About />} />
             <Route path="/skills" element={<Skills />} />
