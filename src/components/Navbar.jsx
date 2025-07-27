@@ -12,7 +12,7 @@ const Navbar = () => {
   };
 
   const menuItems = [
-    { name: "Home", path: "/" },
+    { name: "Home", path: "/krishportfolio" },
     { name: "About", path: "/about" },
     { name: "Skills", path: "/skills" },
     { name: "Education", path: "/education" },
@@ -22,12 +22,13 @@ const Navbar = () => {
     <nav className="bg-black text-white shadow-md">
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center relative">
         {/* Brand */}
-        <div
+        <Link
+        to={'/krishportfolio'}
           className="text-4xl font-bold bg-gradient-to-r from-orange-500 to-red-600 bg-clip-text text-transparent"
           style={{ fontFamily: "Kapakana", fontWeight: 900 }}
         >
           Krish
-        </div>
+        </Link>
 
         {/* Desktop Menu */}
         <div className="space-x-6 hidden md:flex">
