@@ -2,6 +2,7 @@ import React from "react";
 import Logo from "../../assets/images/Logo";
 import Logobtn from "../../components/Logobtn";
 import { ContactString, logosStrings } from "../../assets/Strings/strings";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -17,21 +18,18 @@ const Footer = () => {
 
         {/* Navigation Links */}
         <nav className="flex flex-wrap justify-center gap-6 text-lg">
-          <a href="#home" className="hover:text-white transition">
+          <Link to="/" className="hover:text-white transition">
             Home
-          </a>
-          <a href="#services" className="hover:text-white transition">
-            Services
-          </a>
-          <a href="#about" className="hover:text-white transition">
+          </Link>
+          <Link to="/about" className="hover:text-white transition">
             About Me
-          </a>
-          <a href="#portfolio" className="hover:text-white transition">
-            Portfolio
-          </a>
-          <a href="#contact" className="hover:text-white transition">
-            Contact Me
-          </a>
+          </Link>
+          <Link to="/skills" className="hover:text-white transition">
+            Skills
+          </Link>
+          <Link to="/education" className="hover:text-white transition">
+            Education
+          </Link>
         </nav>
 
         {/* Social Icons */}
@@ -81,7 +79,9 @@ const Footer = () => {
 
         {/* Divider */}
         <div className="border-t border-gray-600 pt-6 text-xs text-gray-500">
-          Designed by <span className="text-orange-400">@{ContactString.tagname}</span> — {ContactString.Postion}
+          Designed by{" "}
+          <span className="text-orange-400">@{ContactString.tagname}</span> —{" "}
+          {ContactString.Postion}
         </div>
       </div>
     </footer>

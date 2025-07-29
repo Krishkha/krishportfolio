@@ -17,7 +17,7 @@ export const handleDownload = () => {
 
 const HeroSection = () => {
   return (
-    <div className="bg-black text-white py-16 px-6 md:px-20">
+    <div className="px-25 bg-black text-white py-14 sm:px-10 md:px-20 ">
       <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10">
         {/* Left Content */}
         <motion.div
@@ -25,21 +25,21 @@ const HeroSection = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
         >
-          <div className="mt-5">
-            <p className="text-neutral-500 text-xl  font-[Intel_One_Mono]">Hi, My name is</p>
-            <p className="Roboto_Mono text-neutral-400 text-3xl sm:text-4xl font-bold">
+          <div className="mt-5 text-center md:text-left">
+            <p className="text-neutral-500 text-lg sm:text-xl font-[Intel_One_Mono]">Hi, My name is</p>
+            <p className="Roboto_Mono text-neutral-400 text-2xl sm:text-4xl font-bold">
               {ContactString.name}
             </p>
           </div>
 
-          <div className="mt-5">
-            <p className="text-neutral-500 text-xl font-[Intel_One_Mono]">I am a</p>
-            <h1 className="Roboto_Mono text-4xl sm:text-5xl bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent font-bold">
+          <div className="mt-4 text-center md:text-left">
+            <p className="text-neutral-500 text-lg sm:text-xl font-[Intel_One_Mono]">I am a</p>
+            <h1 className="Roboto_Mono text-3xl sm:text-5xl bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent font-bold">
               {ContactString.Postion}
             </h1>
           </div>
 
-          <div className="flex gap-4 mb-6 mt-10 flex-wrap">
+          <div className="flex gap-4 mb-6 mt-8 flex-wrap justify-center md:justify-start">
             {logosStrings.map((item, index) => (
               <motion.div
                 key={index}
@@ -52,24 +52,24 @@ const HeroSection = () => {
             ))}
           </div>
 
-          <div className="flex gap-5 my-6 flex-wrap">
+          <div className="flex flex-wrap justify-center md:justify-start gap-5 my-6">
             <PrimaryBtn btnText={"Hire Me"} />
             <SecondBtn btnText={"Download CV"} onclick={handleDownload} />
           </div>
 
-          <div className="flex bg-[#66656533] rounded-xl overflow-hidden w-100 justify-between">
-            <div className="w-50 px-4 py-4">
+          <div className="flex bg-[#66656533] rounded-xl overflow-hidden w-full max-w-md mx-auto md:mx-0 justify-between mt-6">
+            <div className="w-1/2 px-4 py-4 text-center">
               <p className="text-xl font-bold bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">
                 6
               </p>
-              <p className="text-white text-lg">Live Projects</p>
+              <p className="text-white text-base sm:text-lg">Live Projects</p>
             </div>
             <div className="w-0.5 bg-white my-2" />
-            <div className="w-50 px-4 py-4">
+            <div className="w-1/2 px-4 py-4 text-center">
               <p className="text-xl font-bold bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">
                 10 Months
               </p>
-              <p className="text-white text-lg">Experience</p>
+              <p className="text-white text-base sm:text-lg">Experience</p>
             </div>
           </div>
         </motion.div>
@@ -81,14 +81,11 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2 }}
         >
-          <div className="w-60 h-80 bg-[#3b3b3b4a] rounded-t-full relative overflow-visible shadow-[0_-12px_400px_rgba(100,116,139,0.4),0_70px_500px_rgba(71,85,105,0.3)]">
+          <div className="md:w-65  sm:w-50 md:h-80 sm:h-65 sm:mt-20  bg-[#3b3b3b4a] rounded-t-full relative overflow-visible shadow-[0_-12px_400px_rgba(100,116,139,0.4),0_70px_500px_rgba(71,85,105,0.3)]">
             <img
               src={Logo.avatar}
               alt="Avatar"
-              className="w-44 h-auto absolute bottom-0 left-1/2 -translate-x-1/2"
-              // style={{
-              //   clipPath: "ellipse(100% 85% at 50% 15%)",
-              // }}
+              className="w-40 sm:w-35 md:w-45 h-auto absolute bottom-0 left-1/2 -translate-x-1/2"
             />
           </div>
         </motion.div>

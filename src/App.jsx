@@ -1,6 +1,6 @@
 // App.js
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import HeroSection from "./screen/hero";
 import Navbar from "./components/Navbar";
 import About from "./screen/about";
@@ -11,12 +11,12 @@ import Home from "./screen/Home";
 
 function App() {
   return (
-    <div className="bg-black ">
+    <div className="bg-black">
       <Router>
         <Navbar />
-        <div className="w-full h-auto bg-black px-25">
+        <div className="w-full h-auto bg-black">
           <Routes>
-            <Route path="/krishportfolio" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="/herosection" element={<HeroSection />} />
             <Route path="/about" element={<About />} />
             <Route path="/skills" element={<Skills />} />

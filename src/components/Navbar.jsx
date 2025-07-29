@@ -12,7 +12,7 @@ const Navbar = () => {
   };
 
   const menuItems = [
-    { name: "Home", path: "/krishportfolio" },
+    { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Skills", path: "/skills" },
     { name: "Education", path: "/education" },
@@ -23,7 +23,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center relative">
         {/* Brand */}
         <Link
-        to={'/krishportfolio'}
+        to={'/'}
           className="text-4xl font-bold bg-gradient-to-r from-orange-500 to-red-600 bg-clip-text text-transparent"
           style={{ fontFamily: "Kapakana", fontWeight: 900 }}
         >
