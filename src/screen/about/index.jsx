@@ -8,7 +8,7 @@ import { handleDownload } from "../hero";
 
 const About = () => {
   return (
-    <div className="w-full bg-black px-6 sm:px-10 py-16">
+    <div className="w-full bg-black px-6 sm:px-10 py-16 " style={{marginTop:'40px'}}>
       <h1 className=" text-white  text-3xl text-center font-semibold">
         {Aboutstring.title}
       </h1>
@@ -35,7 +35,7 @@ const About = () => {
 
         {/* Description Section */}
         <motion.div
-          className="flex flex-col justify-center gap-8"
+          className="flex flex-col justify-center gap-8 overflow-hidden"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1.2 }}

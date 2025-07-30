@@ -7,8 +7,8 @@ import {
 
 const EduandExp = () => {
   return (
-    <section className="px-6 md:px-16 py-16 bg-black text-white">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-14">
+    <section className="px-6 sm:px-10 md:px-16 py-16 bg-black text-white">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-6">
         {/* Education Section */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
@@ -16,12 +16,12 @@ const EduandExp = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl font-bold text-green-400 mb-10">EDUCATION</h2>
+          <h2 className="text-3xl font-bold text-green-400 mb-6 sm:mb-10">EDUCATION</h2>
           <div className="border-l-4 border-green-500 pl-4 space-y-6">
             {EducationStrings.map((item, index) => (
               <motion.div
                 key={index}
-                className="bg-[#2C2C2C] hover:bg-[#333] transition-all shadow-lg p-6 rounded-xl"
+                className="bg-[#2C2C2C] hover:bg-[#333] transition-all shadow-lg p-4 sm:p-6 rounded-xl"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
@@ -43,12 +43,12 @@ const EduandExp = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl font-bold text-green-400 mb-10">EXPERIENCE</h2>
+          <h2 className="text-3xl font-bold text-green-400 mb-6 sm:mb-10">EXPERIENCE</h2>
           <div className="border-l-4 border-green-500 pl-4 space-y-6">
             {ExperienceStrings.map((item, index) => (
               <motion.div
                 key={index}
-                className="bg-[#2C2C2C] hover:bg-[#333] transition-all shadow-lg p-6 rounded-xl"
+                className="bg-[#2C2C2C] hover:bg-[#333] transition-all shadow-lg p-4 sm:p-6 rounded-xl"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
@@ -57,7 +57,7 @@ const EduandExp = () => {
                 <p className="text-sm text-green-400 font-semibold">
                   {item.duration}
                 </p>
-                <h3 className="text-lg font-light">{item.Postion}</h3>
+                <h3 className="text-lg font-light">{item.Position}</h3>
                 <h3 className="font-bold text-lg mt-1">From: {item.name}</h3>
                 <p className="text-gray-300 mt-2">{item.desc}</p>
               </motion.div>

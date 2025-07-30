@@ -14,7 +14,7 @@ function App() {
     <div className="bg-black">
       <Router>
         <Navbar />
-        <div className="w-full h-auto bg-black">
+        <div className="w-full h-auto bg-black *:m-0 *:p-0">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/herosection" element={<HeroSection />} />
