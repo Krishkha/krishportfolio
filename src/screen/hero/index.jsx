@@ -17,23 +17,27 @@ export const handleDownload = () => {
 
 const HeroSection = () => {
   return (
-    <div className="px-25 bg-black text-white py-14 sm:px-10 md:px-20 ">
-      <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10">
-        {/* Left Content */}
+    <div className="px-25 bg-black text-white py-14 sm:px-10 sm:py-0 md:px-0 lg:px-20 ">
+      <div className="flex items-center gap-10 justify-between px-20 mt-15">
+        {/* Left side */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
         >
           <div className="mt-5 text-center md:text-left">
-            <p className="text-neutral-500 text-lg sm:text-xl font-[Intel_One_Mono]">Hi, My name is</p>
+            <p className="text-neutral-500 text-lg sm:text-xl font-[Intel_One_Mono]">
+              Hi, My name is
+            </p>
             <p className="Roboto_Mono text-neutral-400 text-2xl sm:text-4xl font-bold">
               {ContactString.name}
             </p>
           </div>
 
           <div className="mt-4 text-center md:text-left">
-            <p className="text-neutral-500 text-lg sm:text-xl font-[Intel_One_Mono]">I am a</p>
+            <p className="text-neutral-500 text-lg sm:text-xl font-[Intel_One_Mono]">
+              I am a
+            </p>
             <h1 className="Roboto_Mono text-3xl sm:text-5xl bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent font-bold">
               {ContactString.Postion}
             </h1>
@@ -74,14 +78,14 @@ const HeroSection = () => {
           </div>
         </motion.div>
 
-        {/* Right Image */}
+        {/* Right side */}
         <motion.div
           className="flex justify-center items-end"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2 }}
         >
-          <div className="md:w-65  sm:w-50 md:h-80 sm:h-65 sm:mt-20  bg-[#3b3b3b4a] rounded-t-full relative overflow-visible shadow-[0_-12px_400px_rgba(100,116,139,0.4),0_70px_500px_rgba(71,85,105,0.3)]">
+          <div className="md:w-65 md:flex sm:hidden sm:w-50 md:h-80 md:p-10 sm:h-65 sm:mt-20  bg-[#3b3b3b4a] rounded-t-full relative overflow-visible shadow-[0_-12px_400px_rgba(100,116,139,0.4),0_70px_500px_rgba(71,85,105,0.3)]">
             <img
               src={Logo.avatar}
               alt="Avatar"
