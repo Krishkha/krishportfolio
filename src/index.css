@@ -16,6 +16,12 @@
   font-optical-sizing: auto;
   font-style: normal;
 }
+
+@media only screen and (max-width: 640px) {
+  section{
+    padding: 0 25px;
+  }
+}
 /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

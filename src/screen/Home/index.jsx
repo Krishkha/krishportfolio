@@ -6,12 +6,12 @@ import EduandExp from "../eduandexp";
 
 const Home = () => {
   return (
-    <div className="*:m-0 *:p-0">
+    <section className="*:m-0 *:p-0">
       <HeroSection />
       <About />
       <Skills />
       <EduandExp />
-    </div>
+    </section>
   );
 };
 

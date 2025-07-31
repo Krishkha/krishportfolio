@@ -2,7 +2,7 @@ import Logo from "../images/Logo";
 
 export const Aboutstring = {
   title: "About Me",
-  desc: "My name is Krish Khatikar, a Integrated M.SC. IT graduate from Silver Oak University, with a strong passion for frontend and mobile development. I specialize in technologies such as HTML, CSS, JavaScript, React Native, ReactJS, and Tailwind CSS. I bring 10 months of hands-on experience as a React Native Developer, which includes a 6-month internship and 4 months as a full-time developer. During this time, I successfully designed, developed, and maintained high-performance mobile applications for Android. Recently, I’ve been transitioning from mobile development to web development with ReactJS, as I enjoy building seamless and responsive user interfaces for the web. This shift has allowed me to expand my skill set, deepen my understanding of frontend architecture, and work on more versatile web-based solutions.I thrive in collaborative, cross-functional teams, but I’m equally comfortable working independently. With a fast-learning mindset, strong attention to detail, and a commitment to writing clean, efficient code, I’m excited to contribute to impactful web projects and continue growing as a frontend developer.",
+  desc: "I'm Krish Khatikar, an Integrated M.Sc. IT graduate from Silver Oak University with a strong passion for frontend and mobile development. I have 10 months of experience as a React Native Developer (6-month internship + 4-month full-time), building high-performance Android apps. Recently, I’ve transitioned into web development using ReactJS and Tailwind CSS, focusing on creating responsive, user-friendly interfaces. I'm a fast learner, detail-oriented, and thrive in both team and independent environments—eager to contribute to impactful frontend projects.",
 };
 export const Skillsstrings = {
   language: [
@@ -61,9 +61,9 @@ export const EducationStrings = [
 export const ExperienceStrings = [
   {
     name: "BM CoderTechnology",
-    duration: "10 Month",
+    duration: "10 Month (Jul 25, 2024 to Apr 30, 2025)",
     Postion: "React Native Developer",
-    desc: "React Native Developer with 10 months of hands-on experience, including a 6-month internship and 4 months as a full-time developer. Proven ability to design, develop, and maintain high-performance mobile applications for Android. Skilled in collaborating with cross-functional teams, optimizing app performance, and delivering user-friendly solutions. Fast learner and adaptable to new technologies and frameworks. Capable of working independently as well as effectively in a team environment. Experienced in debugging, testing, and deploying productionready features across multiple live projects.",
+    desc: "React Native Developer with 10 months of experience (6-month internship + 4 months full-time), skilled in building high-performance Android apps. Experienced in debugging, testing, and deploying production-ready features. Strong team player with the ability to work independently, adapt quickly, and deliver user-focused solutions.",
   },
 ];
 

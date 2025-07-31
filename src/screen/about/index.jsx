@@ -8,12 +8,12 @@ import { handleDownload } from "../hero";
 
 const About = () => {
   return (
-    <div className="w-full bg-black px-6 sm:px-10 py-16 " style={{marginTop:'40px'}}>
+    <section className="w-full bg-black px-6 sm:px-10 py-16 " style={{marginTop:'40px'}}>
       <h1 className=" text-white  text-3xl text-center font-semibold">
         {Aboutstring.title}
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 items-center sm:mt-15 gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 items-center sm:mt-15 gap-10 py-10">
         {/* Avatar Section */}
         <motion.div
           className="flex justify-center"
@@ -48,7 +48,7 @@ const About = () => {
           </div>
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 
