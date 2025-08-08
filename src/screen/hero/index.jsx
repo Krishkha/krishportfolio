@@ -61,7 +61,7 @@ const HeroSection = () => {
 
           {/* Logo buttons */}
           <div className="flex gap-4 mb-6 mt-8 flex-wrap justify-center md:justify-start">
-            {socialmeddata.map((item, index) => (
+            {logosStrings.map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ scale: 0 }}
