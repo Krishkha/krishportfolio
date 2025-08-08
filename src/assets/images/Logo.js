@@ -6,7 +6,7 @@ import avatar from "../images/avatar.png";
 import html from "../images/html.png";
 import css from "../images/css.png";
 import bootstrap from "../images/bootstrap.png";
-import tailwindcss from "../images/wind.png";
+import tailwindcss from "../images/tailwindcss.png";
 import react from "../images/react.png";
 import js from "../images/js.png";
 import phone from "../images/phone-call.png";

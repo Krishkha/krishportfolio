@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { motion } from "framer-motion";
 
 import Logobtn from "../../components/Logobtn";
@@ -7,6 +7,9 @@ import SecondBtn from "../../components/SecondBtn";
 import Logo from "../../assets/images/Logo";
 import CV from "../../assets/KHATIKAR_KRISH_RESUME.pdf";
 import { ContactString, logosStrings } from "../../assets/Strings/strings";
+import { child, get, getDatabase, ref } from "firebase/database";
+import { app } from "../../firebase";
+import { contaxtInfo } from "../../contaxt/contaxt";
 
 export const handleDownload = () => {
   const link = document.createElement("a");
@@ -16,6 +19,14 @@ export const handleDownload = () => {
 };
 
 const HeroSection = () => {
+  const { infodata,socialmeddata } = useContext(contaxtInfo) || {};
+
+  console.log('soc ialmeddata ',socialmeddata);
+  
+  // console.log("oiwenbiuh", infodata);
+  const { name, Postion, experiance, liveprojacts } = infodata || {};
+  const { logo,url } = socialmeddata || {};
+
   return (
     <section className="bg-black text-white py-14 sm:px-10 sm:py-0 lg:px-20 px-20">
       <div className="flex flex-col-reverse items-center gap-10 mt-10 sm:flex-row sm:justify-center md:justify-between md:px-20">
@@ -32,7 +43,8 @@ const HeroSection = () => {
               Hi, My name is
             </p>
             <p className="Roboto_Mono text-neutral-400 text-2xl sm:text-4xl font-bold">
-              {ContactString.name}
+              {/* {ContactString.name} */}
+              {name}
             </p>
           </div>
 
@@ -42,13 +54,14 @@ const HeroSection = () => {
               I am a
             </p>
             <h1 className="Roboto_Mono text-3xl sm:text-5xl bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent font-bold">
-              {ContactString.Postion}
+              {/* {ContactString.Postion} */}
+              {Postion}
             </h1>
           </div>
 
           {/* Logo buttons */}
           <div className="flex gap-4 mb-6 mt-8 flex-wrap justify-center md:justify-start">
-            {logosStrings.map((item, index) => (
+            {socialmeddata.map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ scale: 0 }}
@@ -70,14 +83,14 @@ const HeroSection = () => {
           <div className="flex bg-[#66656533] rounded-xl overflow-hidden w-full max-w-md mx-auto md:mx-0 justify-between mt-6">
             <div className="w-1/2 px-4 py-4 text-center">
               <p className="text-xl font-bold bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">
-                6
+                {liveprojacts}
               </p>
               <p className="text-white text-base sm:text-lg">Live Projects</p>
             </div>
             <div className="w-0.5 bg-white my-2" />
             <div className="w-1/2 px-4 py-4 text-center">
               <p className="text-xl font-bold bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">
-                10 Months
+                {experiance}
               </p>
               <p className="text-white text-base sm:text-lg">Experience</p>
             </div>

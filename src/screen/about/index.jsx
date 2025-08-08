@@ -1,16 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import Logo from "../../assets/images/Logo";
 import { Aboutstring } from "../../assets/Strings/strings";
 import PrimaryBtn from "../../components/button";
 import { handleDownload } from "../hero";
+import { child, get, getDatabase, ref } from "firebase/database";
+import { database } from "../../firebase";
 
 const About = () => {
+  const [data, setdata] = useState({});
+
+  useEffect(() => {
+    const aboutRef = ref(database, "Aboutstring");
+    console.log("aboutref", aboutRef);
+
+    get(aboutRef)
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          setdata(snapshot.val());
+          // console.log("Data from Firebase:", snapshot.val());
+        } else {
+          console.log("No data available");
+        }
+      })
+      .catch((error) => {
+        console.error("Firebase error:", error);
+      });
+  }, []);
+
+  // useEffect(() => {
+  //   console.log("State updated:", data);
+  // }, [data]);
+
   return (
-    <section className="w-full bg-black px-6 sm:px-10 py-16 " style={{marginTop:'40px'}}>
+    <section
+      className="w-full bg-black px-6 sm:px-10 py-16 "
+      style={{ marginTop: "40px" }}
+    >
       <h1 className=" text-white  text-3xl text-center font-semibold">
-        {Aboutstring.title}
+        {/* {Aboutstring.title} */}
+        About Me
       </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 items-center sm:mt-15 gap-10 py-10">
@@ -41,7 +71,8 @@ const About = () => {
           transition={{ duration: 1.2 }}
         >
           <p className="Roboto_Mono text-white text-lg font-extralight  leading-relaxed md:text-[0.9rem] sm:text-[0.8rem] lg:text-lg ">
-            {Aboutstring.desc}
+            {/* {Aboutstring.desc} */}
+            {data.desc}
           </p>
           <div className="sm:self-center md:self-auto sm:text-center">
             <PrimaryBtn btnText={"Download CV"} onclick={handleDownload} />
