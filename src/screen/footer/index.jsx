@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 import { contaxtInfo } from "../../contaxt/contaxt";
 
 const Footer = () => {
-  const infodata = useContext(contaxtInfo) || {};
-
-  const { Postion, email, phoneno, tagname,logname } = infodata;
+  const data = useContext(contaxtInfo) || {};
+  
+  const { Postion, email, phoneno, tagname,logname } = data.infodata || {} ;
   // console.log("from footer", infodata);
 
   return (

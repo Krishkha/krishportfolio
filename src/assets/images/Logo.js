@@ -10,6 +10,8 @@ import tailwindcss from "../images/tailwindcss.png";
 import react from "../images/react.png";
 import js from "../images/js.png";
 import phone from "../images/phone-call.png";
+import git from "../images/git.png";
+
 
 const Logo = {
   facebook,
@@ -23,7 +25,8 @@ const Logo = {
   tailwindcss,
   react,
   js,
-  phone
+  phone,
+  git
 };
 
 export default Logo;

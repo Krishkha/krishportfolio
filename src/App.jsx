@@ -11,55 +11,44 @@ import Home from "./screen/Home";
 import { contaxtInfo } from "./contaxt/contaxt";
 import { get, ref } from "firebase/database";
 import { database } from "./firebase";
+
 function App() {
-  const [infodata, setInfodata] = useState();
-  const [socialmeddata, setSocialmeddata] = useState([]);
+  const [infodata, setInfodata] = useState(null);
+  const [socialmeddata, setSocialmeddata] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const getdata = async () => {
     const inforef = ref(database, "ContactString");
-    await get(inforef)
-      .then((snapshot) => {
-        if (snapshot.exists()) {
-          setInfodata(snapshot.val());
-          // console.log("Data from Firebase:", snapshot.val());
-        } else {
-          console.log("No data available");
-        }
-      })
-      .catch((error) => {
-        console.error("Firebase error:", error);
-      });
+    const snapshot = await get(inforef);
+    if (snapshot.exists()) {
+      setInfodata(snapshot.val());
+    }
   };
-
 
   const getdata2 = async () => {
     const inforef = ref(database, "logosStrings");
-    await get(inforef)
-      .then((snapshot) => {
-        if (snapshot.exists()) {
-          setSocialmeddata(snapshot.val());
-          // console.log("Data from Firebase:", snapshot.val());
-        } else {
-          console.log("No data available");
-        }
-      })
-      .catch((error) => {
-        console.error("Firebase error:", error);
-      });
+    const snapshot = await get(inforef);
+    if (snapshot.exists()) {
+      setSocialmeddata(snapshot.val());
+    }
   };
 
   useEffect(() => {
-    getdata();
-    getdata2();
+    Promise.all([getdata(), getdata2()]).finally(() => {
+      setLoading(false);
+    });
   }, []);
 
-  useEffect(() => {
-    // console.log("sakjhbib", infodata); 
-    console.log("ascacoijrek", socialmeddata);
-  }, [infodata,socialmeddata]);
+  if (loading) {
+    return (
+      <div className="bg-black text-white flex justify-center items-center min-h-screen">
+        <div className="loader border-4 border-gray-300 border-t-orange-500 rounded-full w-12 h-12 animate-spin"></div>
+      </div>
+    );
+  }
 
   return (
-    <contaxtInfo.Provider value={{infodata,socialmeddata}}>
+    <contaxtInfo.Provider value={{ infodata, socialmeddata }}>
       <div className="bg-black">
         <Router>
           <Navbar />
@@ -80,6 +69,7 @@ function App() {
 }
 
 export default App;
+
 
 // import React from "react";
 // import HeroSection from "./screen/hero";

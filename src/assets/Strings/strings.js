@@ -75,6 +75,10 @@ export const logosStrings = [
     icon: Logo.linkedin,
     url: "https://linkedin.com/in/krish-khatikar-31297024b",
   },
+  {
+    icon: Logo.git,
+    url:'https://github.com/Krishkha?tab=repositories'
+  }
 ];
 
 export const ContactString = {

@@ -1,14 +1,11 @@
 import React, { useContext } from "react";
 import { motion } from "framer-motion";
-
 import Logobtn from "../../components/Logobtn";
 import PrimaryBtn from "../../components/button";
 import SecondBtn from "../../components/SecondBtn";
 import Logo from "../../assets/images/Logo";
 import CV from "../../assets/KHATIKAR_KRISH_RESUME.pdf";
-import { ContactString, logosStrings } from "../../assets/Strings/strings";
-import { child, get, getDatabase, ref } from "firebase/database";
-import { app } from "../../firebase";
+import { logosStrings } from "../../assets/Strings/strings";
 import { contaxtInfo } from "../../contaxt/contaxt";
 
 export const handleDownload = () => {
@@ -19,13 +16,18 @@ export const handleDownload = () => {
 };
 
 const HeroSection = () => {
-  const { infodata,socialmeddata } = useContext(contaxtInfo) || {};
-
-  console.log('soc ialmeddata ',socialmeddata);
-  
-  // console.log("oiwenbiuh", infodata);
+  const { infodata, socialmeddata } = useContext(contaxtInfo) || {};
   const { name, Postion, experiance, liveprojacts } = infodata || {};
-  const { logo,url } = socialmeddata || {};
+  const { logo, url } = socialmeddata || {};
+
+  // Loader if data is missing
+  if (!name || !Postion) {
+    return (
+      <section className="bg-black text-white py-14 px-20 flex justify-center items-center min-h-[60vh]">
+        <div className="loader border-4 border-gray-300 border-t-orange-500 rounded-full w-12 h-12 animate-spin"></div>
+      </section>
+    );
+  }
 
   return (
     <section className="bg-black text-white py-14 sm:px-10 sm:py-0 lg:px-20 px-20">
@@ -43,7 +45,6 @@ const HeroSection = () => {
               Hi, My name is
             </p>
             <p className="Roboto_Mono text-neutral-400 text-2xl sm:text-4xl font-bold">
-              {/* {ContactString.name} */}
               {name}
             </p>
           </div>
@@ -54,7 +55,6 @@ const HeroSection = () => {
               I am a
             </p>
             <h1 className="Roboto_Mono text-3xl sm:text-5xl bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent font-bold">
-              {/* {ContactString.Postion} */}
               {Postion}
             </h1>
           </div>
