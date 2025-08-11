@@ -1,6 +1,6 @@
 // src/components/Navbar.js
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PrimaryBtn from "./button";
 import "../index.css";
 import { menuItems } from "../assets/Strings/strings";
@@ -12,6 +12,7 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
+  const navigate = useNavigate();
 
 
   return (
@@ -40,7 +41,7 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:block">
-          <PrimaryBtn btnText={"Hire me"} />
+          <PrimaryBtn btnText={"Hire me"} onclick={() => navigate("/contact", { state: { title: "Hire Me" } })}   />
         </div>
 
         {/* Mobile Menu Icon */}

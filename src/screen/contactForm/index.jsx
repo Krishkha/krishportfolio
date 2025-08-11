@@ -88,9 +88,9 @@ export default function ContactForm() {
         ></textarea>
 
         {/* Button */}
-        <div className="w-full flex justify-center">
+        <div className="w-full flex justify-center mb-20">
           <PrimaryBtn
-            btnText="Send Request"
+            btnText="Submit"
             onclick={handleSubmit}
             loading={isLoading}
           />
