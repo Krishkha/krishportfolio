@@ -7,6 +7,7 @@ import Logo from "../../assets/images/Logo";
 import CV from "../../assets/KHATIKAR_KRISH_RESUME.pdf";
 import { logosStrings } from "../../assets/Strings/strings";
 import { contaxtInfo } from "../../contaxt/contaxt";
+import { useNavigate } from "react-router-dom";
 
 export const handleDownload = () => {
   const link = document.createElement("a");
@@ -20,6 +21,7 @@ const HeroSection = () => {
   const { name, Postion, experiance, liveprojacts } = infodata || {};
   const { logo, url } = socialmeddata || {};
 
+  const navigate = useNavigate();
   // Loader if data is missing
   if (!name || !Postion) {
     return (
@@ -75,7 +77,7 @@ const HeroSection = () => {
 
           {/* CTA buttons */}
           <div className="flex flex-wrap justify-center md:justify-start gap-5 my-6">
-            <PrimaryBtn btnText={"Hire Me"} />
+            <PrimaryBtn btnText={"Hire Me"} onclick={() => navigate("/contact", { state: { title: "Hire Me" } })}   />
             <SecondBtn btnText={"Download CV"} onclick={handleDownload} />
           </div>
 

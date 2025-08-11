@@ -23,3 +23,17 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
 export { app, database };
+
+
+
+
+
+
+
+// firebase old rule
+// {
+//   "rules": {
+//     ".read": "now < 1757097000000",  // 2025-9-6
+//     ".write": "now < 1757097000000",  // 2025-9-6
+//   }
+// }

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import PrimaryBtn from "./button";
 import "../index.css";
+import { menuItems } from "../assets/Strings/strings";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,12 +12,7 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
-  const menuItems = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Skills", path: "/skills" },
-    { name: "Education", path: "/education" },
-  ];
+
 
   return (
     <nav className="bg-black text-white shadow-md">

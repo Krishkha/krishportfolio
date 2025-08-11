@@ -1,14 +1,18 @@
 import React, { useContext } from "react";
 import Logo from "../../assets/images/Logo";
 import Logobtn from "../../components/Logobtn";
-import { ContactString, logosStrings } from "../../assets/Strings/strings";
+import {
+  ContactString,
+  logosStrings,
+  menuItems,
+} from "../../assets/Strings/strings";
 import { Link } from "react-router-dom";
 import { contaxtInfo } from "../../contaxt/contaxt";
 
 const Footer = () => {
   const data = useContext(contaxtInfo) || {};
-  
-  const { Postion, email, phoneno, tagname,logname } = data.infodata || {} ;
+
+  const { Postion, email, phoneno, tagname, logname } = data.infodata || {};
   // console.log("from footer", infodata);
 
   return (
@@ -24,18 +28,17 @@ const Footer = () => {
 
         {/* Navigation Links */}
         <nav className="flex flex-wrap justify-center gap-6 text-lg">
-          <Link to="/" className="hover:text-white transition">
-            Home
-          </Link>
-          <Link to="/about" className="hover:text-white transition">
-            About Me
-          </Link>
-          <Link to="/skills" className="hover:text-white transition">
-            Skills
-          </Link>
-          <Link to="/education" className="hover:text-white transition">
-            Education
-          </Link>
+          <div className="space-x-6 hidden md:flex">
+            {menuItems.map((item) => (
+              <Link
+                key={item.name}
+                to={item.path}
+                className="Roboto_Mono font-medium hover:text-gray-400 transition duration-200"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
         </nav>
 
         {/* Social Icons */}

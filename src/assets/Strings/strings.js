@@ -1,5 +1,13 @@
 import Logo from "../images/Logo";
 
+export const menuItems = [
+  { name: "Home", path: "/" },
+  { name: "About", path: "/about" },
+  { name: "Skills", path: "/skills" },
+  { name: "Education", path: "/education" },
+  { name: "Contact Me", path: "/contact" },
+];
+
 export const Aboutstring = {
   title: "About Me",
   desc: "I'm Krish Khatikar, an Integrated M.Sc. IT graduate from Silver Oak University with a strong passion for frontend and mobile development. I have 10 months of experience as a React Native Developer (6-month internship + 4-month full-time), building high-performance Android apps. Recently, I’ve transitioned into web development using ReactJS and Tailwind CSS, focusing on creating responsive, user-friendly interfaces. I'm a fast learner, detail-oriented, and thrive in both team and independent environments—eager to contribute to impactful frontend projects.",
@@ -77,14 +85,14 @@ export const logosStrings = [
   },
   {
     icon: Logo.git,
-    url:'https://github.com/Krishkha?tab=repositories'
-  }
+    url: "https://github.com/Krishkha?tab=repositories",
+  },
 ];
 
 export const ContactString = {
   name: "KRISH KHATIKAR",
-  tagname: 'krish.khatikar',
+  tagname: "krish.khatikar",
   email: "khatikarkrish18@gmail.com",
   phoneno: "+91 7990471540",
-  Postion:"Front End Developer"
-}
+  Postion: "Front End Developer",
+};

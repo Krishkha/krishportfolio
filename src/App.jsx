@@ -11,6 +11,7 @@ import Home from "./screen/Home";
 import { contaxtInfo } from "./contaxt/contaxt";
 import { get, ref } from "firebase/database";
 import { database } from "./firebase";
+import ContactForm from "./screen/contactForm";
 
 function App() {
   const [infodata, setInfodata] = useState(null);
@@ -59,6 +60,7 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/skills" element={<Skills />} />
               <Route path="/education" element={<EduandExp />} />
+              <Route path="/contact" element={<ContactForm />} />
             </Routes>
           </div>
           <Footer />
