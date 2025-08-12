@@ -17,17 +17,60 @@ export default function ContactForm() {
   const [status, setStatus] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  const [errors, setErrors] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  // Validation helper
+  const validateForm = () => {
+    let valid = true;
+    let newErrors = { name: "", email: "", message: "" };
+
+    if (!formData.name.trim()) {
+      newErrors.name = "Please enter your name.";
+      valid = false;
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Please enter your email.";
+      valid = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = "Please enter a valid email.";
+      valid = false;
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = "Please enter your message.";
+      valid = false;
+    }
+
+    setErrors(newErrors);
+    return valid;
+  };
+
   const handleChange = (e) => {
+    const { name, value } = e.target;
+
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value,
+    });
+
+    setErrors({
+      ...errors,
+      [name]: "",
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true);
     setStatus("");
+
+    if (!validateForm()) return;
+
+    setIsLoading(true);
     try {
       const hireRef = ref(database, "hireRequests");
       await push(hireRef, formData);
@@ -39,9 +82,7 @@ export default function ContactForm() {
       setStatus("❌ Something went wrong. Please try again.");
     } finally {
       setIsLoading(false);
-      setTimeout(() => {
-        setStatus("");
-      }, 3000);
+      setTimeout(() => setStatus(""), 3000);
     }
   };
 
@@ -56,44 +97,58 @@ export default function ContactForm() {
         className="space-y-4 max-w-lg w-full animate-slideUp"
       >
         {/* Name */}
-        <input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          value={formData.name}
-          onChange={handleChange}
-          className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition duration-300"
-          required
-        />
+        <div>
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            value={formData.name}
+            onChange={handleChange}
+            className={`w-full p-3 bg-gray-800 border ${
+              errors.name ? "border-red-500" : "border-gray-700"
+            } rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition duration-300`}
+          />
+          {errors.name && (
+            <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+          )}
+        </div>
 
         {/* Email */}
-        <input
-          type="email"
-          name="email"
-          placeholder="Your Email"
-          value={formData.email}
-          onChange={handleChange}
-          className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition duration-300"
-          required
-        />
+        <div>
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            value={formData.email}
+            onChange={handleChange}
+            className={`w-full p-3 bg-gray-800 border ${
+              errors.email ? "border-red-500" : "border-gray-700"
+            } rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition duration-300`}
+          />
+          {errors.email && (
+            <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+          )}
+        </div>
 
         {/* Message */}
-        <textarea
-          name="message"
-          placeholder="Your Message"
-          value={formData.message}
-          onChange={handleChange}
-          className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 min-h-[120px] transition duration-300"
-          required
-        ></textarea>
+        <div>
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            value={formData.message}
+            onChange={handleChange}
+            className={`w-full p-3 bg-gray-800 border ${
+              errors.message ? "border-red-500" : "border-gray-700"
+            } rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 min-h-[120px] transition duration-300`}
+          ></textarea>
+          {errors.message && (
+            <p className="text-red-500 text-sm mt-1">{errors.message}</p>
+          )}
+        </div>
 
         {/* Button */}
         <div className="w-full flex justify-center mb-20">
-          <PrimaryBtn
-            btnText="Submit"
-            onclick={handleSubmit}
-            loading={isLoading}
-          />
+          <PrimaryBtn btnText="Submit" loading={isLoading} type="submit" />
         </div>
       </form>
 

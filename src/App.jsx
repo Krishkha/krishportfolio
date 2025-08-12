@@ -12,6 +12,7 @@ import { contaxtInfo } from "./contaxt/contaxt";
 import { get, ref } from "firebase/database";
 import { database } from "./firebase";
 import ContactForm from "./screen/contactForm";
+import Formdata from "./admin/formdata";
 
 function App() {
   const [infodata, setInfodata] = useState(null);
@@ -55,15 +56,31 @@ function App() {
           <Navbar />
           <div className="w-full h-auto bg-black *:m-0 *:p-0">
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route
+                path="/"
+                element={
+                  <>
+                    <Home />
+                    <Footer />
+                  </>
+                }
+              />
               <Route path="/herosection" element={<HeroSection />} />
               <Route path="/about" element={<About />} />
               <Route path="/skills" element={<Skills />} />
               <Route path="/education" element={<EduandExp />} />
-              <Route path="/contact" element={<ContactForm />} />
+              <Route
+                path="/contact"
+                element={
+                  <>
+                    <ContactForm />
+                    <Footer />
+                  </>
+                }
+              />
+              <Route path="/formdata" element={<Formdata />} />
             </Routes>
           </div>
-          <Footer />
         </Router>
       </div>
     </contaxtInfo.Provider>
@@ -71,7 +88,6 @@ function App() {
 }
 
 export default App;
-
 
 // import React from "react";
 // import HeroSection from "./screen/hero";
