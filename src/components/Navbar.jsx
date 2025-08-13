@@ -4,9 +4,11 @@ import { Link, useNavigate } from "react-router-dom";
 import PrimaryBtn from "./button";
 import "../index.css";
 import { menuItems } from "../assets/Strings/strings";
+import ContactModal from "./Model";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [modalIsOpen, setmodalIsOpen] = useState(false);
 
   const toggleMobileMenu = () => {
     setIsOpen(!isOpen);
@@ -14,13 +16,12 @@ const Navbar = () => {
 
   const navigate = useNavigate();
 
-
   return (
     <nav className="bg-black text-white shadow-md">
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center relative">
         {/* Brand */}
         <Link
-        to={'/'}
+          to={"/"}
           className="text-4xl font-bold bg-gradient-to-r from-orange-500 to-red-600 bg-clip-text text-transparent"
           style={{ fontFamily: "Kapakana", fontWeight: 900 }}
         >
@@ -41,7 +42,13 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:block">
-          <PrimaryBtn btnText={"Hire me"} onclick={() => navigate("/contact", { state: { title: "Hire Me" } })}   />
+          <PrimaryBtn
+            btnText={"Hire me"}
+            // onclick={() =>
+            //   navigate("/contact", { state: { title: "Hire Me" } })
+            // }
+            onclick={() => setmodalIsOpen(true)}
+          />
         </div>
 
         {/* Mobile Menu Icon */}
@@ -84,6 +91,11 @@ const Navbar = () => {
           </div>
         )}
       </div>
+      <ContactModal
+        modalIsOpen={modalIsOpen}
+        setIsOpen={setmodalIsOpen}
+        title={"Hire Me"}
+      />
     </nav>
   );
 };

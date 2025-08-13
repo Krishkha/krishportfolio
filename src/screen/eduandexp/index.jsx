@@ -59,7 +59,7 @@ const EduandExp = () => {
   
   return (
     <section className="px-6 sm:px-10 md:px-16 bg-black text-white ">
-      <h1 className="text-3xl font-bold text-center mt-10 ">
+      <h1 className="text-white text-xl sm:text-3xl text-center font-semibold">
         Education & Experience
       </h1>
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-6 py-20">
@@ -70,7 +70,7 @@ const EduandExp = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl font-bold text-green-400 mb-6 sm:mb-10">
+          <h2 className="text-xl sm:text-3xl font-bold text-green-400 mb-6 sm:mb-10">
             EDUCATION
           </h2>
           <div className="border-l-4 border-green-500 pl-4 space-y-6">
@@ -118,7 +118,7 @@ const EduandExp = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl font-bold text-green-400 mb-6 sm:mb-10">
+          <h2 className="text-xl sm:text-3xl font-bold text-green-400 mb-6 sm:mb-10">
             EXPERIENCE
           </h2>
           <div className="border-l-4 border-green-500 pl-4 space-y-6">

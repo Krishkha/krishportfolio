@@ -17,7 +17,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-[#ffffff07] text-gray-300 w-full py-12 px-6">
-      <div className="max-w-6xl mx-auto text-center space-y-10">
+      <div className="max-w-6xl mx-auto text-center space-y-10 py-10">
         {/* Logo */}
         <h1
           className="text-4xl font-bold bg-gradient-to-r from-orange-500 to-red-600 bg-clip-text text-transparent"

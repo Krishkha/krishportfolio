@@ -8,6 +8,8 @@ import CV from "../../assets/KHATIKAR_KRISH_RESUME.pdf";
 import { logosStrings } from "../../assets/Strings/strings";
 import { contaxtInfo } from "../../contaxt/contaxt";
 import { useNavigate } from "react-router-dom";
+import Model from "../../components/Model";
+import ContactModal from "../../components/Model";
 
 export const handleDownload = () => {
   const link = document.createElement("a");
@@ -20,6 +22,8 @@ const HeroSection = () => {
   const { infodata, socialmeddata } = useContext(contaxtInfo) || {};
   const { name, Postion, experiance, liveprojacts } = infodata || {};
   const { logo, url } = socialmeddata || {};
+
+  const [modalIsOpen, setIsOpen] = React.useState(false);
 
   const navigate = useNavigate();
   // Loader if data is missing
@@ -46,7 +50,7 @@ const HeroSection = () => {
             <p className="text-neutral-500 text-lg font-[Intel_One_Mono]">
               Hi, My name is
             </p>
-            <p className="Roboto_Mono text-neutral-400 text-2xl sm:text-4xl font-bold">
+            <p className="Roboto_Mono text-neutral-400 text-2xl sm:text-xl font-bold">
               {name}
             </p>
           </div>
@@ -56,7 +60,7 @@ const HeroSection = () => {
             <p className="text-neutral-500 text-lg font-[Intel_One_Mono]">
               I am a
             </p>
-            <h1 className="Roboto_Mono text-3xl sm:text-5xl bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent font-bold">
+            <h1 className="Roboto_Mono text-xl sm:text-3xl bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent font-bold">
               {Postion}
             </h1>
           </div>
@@ -77,7 +81,13 @@ const HeroSection = () => {
 
           {/* CTA buttons */}
           <div className="flex flex-wrap justify-center md:justify-start gap-5 my-6">
-            <PrimaryBtn btnText={"Hire Me"} onclick={() => navigate("/contact", { state: { title: "Hire Me" } })}   />
+            <PrimaryBtn
+              btnText={"Hire Me"}
+              // onclick={() =>
+              //   navigate("/contact", { state: { title: "Hire Me" } })
+              // }
+              onclick={()=> setIsOpen(true)}
+            />
             <SecondBtn btnText={"Download CV"} onclick={handleDownload} />
           </div>
 
@@ -115,6 +125,8 @@ const HeroSection = () => {
           </div>
         </motion.div>
       </div>
+
+      <ContactModal modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} title={"Hire Me"} />
     </section>
   );
 };

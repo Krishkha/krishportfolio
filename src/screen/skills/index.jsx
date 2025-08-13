@@ -5,7 +5,7 @@ import { Skillsstrings } from "../../assets/Strings/strings";
 const Skills = () => {
   return (
     <div className="w-full mt-20 text-white px-4 md:px-16 ">
-      <h1 className="text-3xl font-bold text-center my-15 ">Skills</h1>
+      <h1 className="  text-white text-xl sm:text-3xl text-center font-semibold my-10 ">Skills</h1>
 
       <motion.div
         className="flex flex-wrap justify-center gap-6 sm:gap-8 pb-10"

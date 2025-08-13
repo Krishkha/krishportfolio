@@ -35,23 +35,23 @@ const About = () => {
 
   return (
     <section
-      className="w-full bg-black px-6 sm:px-10 py-16 "
+      className="w-full bg-black p-0"
       style={{ marginTop: "40px" }}
     >
-      <h1 className=" text-white  text-3xl text-center font-semibold">
+      <h1 className=" text-white text-xl sm:text-3xl text-center font-semibold">
         {/* {Aboutstring.title} */}
         About Me
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 items-center sm:mt-15 gap-10 py-10">
+      <div className="flex justify-between sm:mt-15 md:mt-15 gap-10">
         {/* Avatar Section */}
         <motion.div
-          className="flex justify-center"
+          className="sm:flex justify-center w-[40%] hidden mt-15"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          <div className="md:w-65 md:flex sm:w-50 md:h-80 md:p-10 sm:h-65 sm:mt-20  bg-[#3b3b3b4a] rounded-t-full relative overflow-visible shadow-[0_-12px_400px_rgba(100,116,139,0.4),0_70px_500px_rgba(71,85,105,0.3)]">
+          <div className="md:w-65 md:flex sm:w-50 md:h-80 md:p-10 sm:h-65  bg-[#3b3b3b4a] rounded-t-full relative overflow-visible shadow-[0_-12px_400px_rgba(100,116,139,0.4),0_70px_500px_rgba(71,85,105,0.3)]">
             <img
               src={Logo.avatar}
               alt="Avatar"
@@ -65,16 +65,16 @@ const About = () => {
 
         {/* Description Section */}
         <motion.div
-          className="flex flex-col justify-center gap-8 overflow-hidden"
+          className="flex flex-col justify-center gap-8 overflow-hidden sm:w-[60%] mt-10"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1.2 }}
         >
-          <p className="Roboto_Mono text-white text-lg font-extralight  leading-relaxed md:text-[0.9rem] sm:text-[0.8rem] lg:text-lg ">
+          <p className="Roboto_Mono text-white text-[0.8rem] font-extralight  leading-relaxed md:text-[0.9rem] sm:text-[1rem] lg:text-lg ">
             {/* {Aboutstring.desc} */}
             {data.desc}
           </p>
-          <div className="sm:self-center md:self-auto sm:text-center">
+          <div style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
             <PrimaryBtn btnText={"Download CV"} onclick={handleDownload} />
           </div>
         </motion.div>
